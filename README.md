@@ -17,7 +17,6 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Authors](#authors)
-* [Acknowledgements](#acknowledgements)
 
 ## About The Project
 
