@@ -7,26 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D314FC1D29F08E83002328E7 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314FC1C29F08E83002328E7 /* AuthView.swift */; };
 		D3AE9AF729EF0BBD0092E41D /* GameStreamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AE9AF629EF0BBD0092E41D /* GameStreamApp.swift */; };
 		D3AE9AF929EF0BBD0092E41D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AE9AF829EF0BBD0092E41D /* ContentView.swift */; };
 		D3AE9AFB29EF0BBF0092E41D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3AE9AFA29EF0BBF0092E41D /* Assets.xcassets */; };
 		D3AE9AFE29EF0BBF0092E41D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3AE9AFD29EF0BBF0092E41D /* Preview Assets.xcassets */; };
-		D3AE9B0829EF8A0A0092E41D /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AE9B0729EF8A0A0092E41D /* SessionView.swift */; };
-		D3AE9B0A29EF8D4A0092E41D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AE9B0929EF8D4A0092E41D /* LoginView.swift */; };
-		D3AE9B0C29EF8D760092E41D /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AE9B0B29EF8D760092E41D /* SignupView.swift */; };
 		D3AE9B0E29EF8D940092E41D /* Fields.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AE9B0D29EF8D940092E41D /* Fields.swift */; };
 		D3AE9B1029EFBEC30092E41D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AE9B0F29EFBEC30092E41D /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D314FC1C29F08E83002328E7 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		D3AE9AF329EF0BBD0092E41D /* GameStream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameStream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AE9AF629EF0BBD0092E41D /* GameStreamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStreamApp.swift; sourceTree = "<group>"; };
 		D3AE9AF829EF0BBD0092E41D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D3AE9AFA29EF0BBF0092E41D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3AE9AFD29EF0BBF0092E41D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D3AE9B0729EF8A0A0092E41D /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
-		D3AE9B0929EF8D4A0092E41D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		D3AE9B0B29EF8D760092E41D /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		D3AE9B0D29EF8D940092E41D /* Fields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fields.swift; sourceTree = "<group>"; };
 		D3AE9B0F29EFBEC30092E41D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,10 +77,8 @@
 			children = (
 				D3AE9AF629EF0BBD0092E41D /* GameStreamApp.swift */,
 				D3AE9AF829EF0BBD0092E41D /* ContentView.swift */,
+				D314FC1C29F08E83002328E7 /* AuthView.swift */,
 				D3AE9B0D29EF8D940092E41D /* Fields.swift */,
-				D3AE9B0B29EF8D760092E41D /* SignupView.swift */,
-				D3AE9B0929EF8D4A0092E41D /* LoginView.swift */,
-				D3AE9B0729EF8A0A0092E41D /* SessionView.swift */,
 				D3AE9B0F29EFBEC30092E41D /* HomeView.swift */,
 			);
 			path = Views;
@@ -163,10 +157,8 @@
 				D3AE9B0E29EF8D940092E41D /* Fields.swift in Sources */,
 				D3AE9B1029EFBEC30092E41D /* HomeView.swift in Sources */,
 				D3AE9AF929EF0BBD0092E41D /* ContentView.swift in Sources */,
-				D3AE9B0829EF8A0A0092E41D /* SessionView.swift in Sources */,
-				D3AE9B0A29EF8D4A0092E41D /* LoginView.swift in Sources */,
 				D3AE9AF729EF0BBD0092E41D /* GameStreamApp.swift in Sources */,
-				D3AE9B0C29EF8D760092E41D /* SignupView.swift in Sources */,
+				D314FC1D29F08E83002328E7 /* AuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
