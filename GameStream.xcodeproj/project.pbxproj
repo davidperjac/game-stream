@@ -14,6 +14,7 @@
 		D3AE9AFE29EF0BBF0092E41D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3AE9AFD29EF0BBF0092E41D /* Preview Assets.xcassets */; };
 		D3AE9B0E29EF8D940092E41D /* Fields.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AE9B0D29EF8D940092E41D /* Fields.swift */; };
 		D3AE9B1029EFBEC30092E41D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AE9B0F29EFBEC30092E41D /* HomeView.swift */; };
+		D3E4DFE129F626E000039CF6 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E4DFE029F626E000039CF6 /* Route.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		D3AE9AFD29EF0BBF0092E41D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D3AE9B0D29EF8D940092E41D /* Fields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fields.swift; sourceTree = "<group>"; };
 		D3AE9B0F29EFBEC30092E41D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D3E4DFE029F626E000039CF6 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,8 @@
 		D3AE9AF529EF0BBD0092E41D /* GameStream */ = {
 			isa = PBXGroup;
 			children = (
+				D3E4DFE229F62FD900039CF6 /* App */,
+				D3E4DFDF29F626CD00039CF6 /* Models */,
 				D3AE9B0429EF16560092E41D /* Views */,
 				D3AE9AFA29EF0BBF0092E41D /* Assets.xcassets */,
 				D3AE9AFC29EF0BBF0092E41D /* Preview Content */,
@@ -75,13 +79,28 @@
 		D3AE9B0429EF16560092E41D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D3AE9AF629EF0BBD0092E41D /* GameStreamApp.swift */,
-				D3AE9AF829EF0BBD0092E41D /* ContentView.swift */,
 				D314FC1C29F08E83002328E7 /* AuthView.swift */,
 				D3AE9B0D29EF8D940092E41D /* Fields.swift */,
 				D3AE9B0F29EFBEC30092E41D /* HomeView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D3E4DFDF29F626CD00039CF6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D3E4DFE029F626E000039CF6 /* Route.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D3E4DFE229F62FD900039CF6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D3AE9AF629EF0BBD0092E41D /* GameStreamApp.swift */,
+				D3AE9AF829EF0BBD0092E41D /* ContentView.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +176,7 @@
 				D3AE9B0E29EF8D940092E41D /* Fields.swift in Sources */,
 				D3AE9B1029EFBEC30092E41D /* HomeView.swift in Sources */,
 				D3AE9AF929EF0BBD0092E41D /* ContentView.swift in Sources */,
+				D3E4DFE129F626E000039CF6 /* Route.swift in Sources */,
 				D3AE9AF729EF0BBD0092E41D /* GameStreamApp.swift in Sources */,
 				D314FC1D29F08E83002328E7 /* AuthView.swift in Sources */,
 			);

@@ -9,13 +9,9 @@ import SwiftUI
 			
 struct ContentView: View {
 	
-	@State var isHomeActive: Bool = false
-	
-    var body: some View {
-		NavigationStack {
-			AuthView(isHomeActive: $isHomeActive)
-		}
-    }
+	var body: some View {
+		AuthView()
+	}
 }
 
 struct ContentView_Previews: PreviewProvider {

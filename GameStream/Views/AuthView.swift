@@ -13,21 +13,28 @@ enum SESSION {
 }
 
 struct AuthView: View {
-	
-	@Binding var isHomeActive : Bool
+	@State var path = NavigationPath()
 	
     var body: some View {
-		ZStack {
-			Spacer()
-			Color("marin")
-				.ignoresSafeArea()
-			VStack {
-				Image("AppLogo")
-					.resizable()
-					.aspectRatio(contentMode: .fit)
-					.frame(width: 250)
-					.padding(.bottom, 40)
-				SessionView(isHomeActive: $isHomeActive)
+		NavigationStack(path: $path) {
+			ZStack {
+				Spacer()
+				Color("marin")
+					.ignoresSafeArea()
+				VStack {
+					Image("AppLogo")
+						.resizable()
+						.aspectRatio(contentMode: .fit)
+						.frame(width: 250)
+						.padding(.bottom, 40)
+					SessionView()
+				}
+			}
+			.navigationDestination(for: Route.self) { route in
+				switch route {
+					case .home:
+						HomeView()
+				}
 			}
 		}
     }
@@ -36,15 +43,13 @@ struct AuthView: View {
 struct SessionView : View {
 	@State var session : SESSION = .LOGIN
 	
-	@Binding var isHomeActive : Bool
-	
 	var body: some View {
 		VStack {
 			SessionButtons(session: $session)
 			Spacer(minLength: 30)
 			switch session {
 				case .LOGIN:
-					LoginView(isHomeActive: $isHomeActive)
+					LoginView()
 				case .SIGNUP:
 					SignupView()
 			}
@@ -53,17 +58,13 @@ struct SessionView : View {
 }
 
 struct LoginView : View {
-	
-	@Binding var isHomeActive : Bool
-	
 	var body: some View {
 		ScrollView {
 			VStack(alignment: .leading) {
 				EmailField()
 				PasswordField()
 				ForgotPassword()
-				SubmitButton(title: "LOGIN", action: {isHomeActive = true})
-					.navigationDestination(isPresented: $isHomeActive, destination: {HomeView()})
+				SubmitButton(title: "LOGIN", action: {print("LOGGING IN!")})
 				SocialNetworks()
 			}.padding(.horizontal, 36)
 		}
@@ -178,7 +179,7 @@ struct SubmitButton : View {
 	var action : () -> Void
 	
 	var body: some View {
-		Button(action: action, label: {
+		NavigationLink(value: Route.home) {
 			Text(title)
 				.fontWeight(.bold)
 				.foregroundColor(.white)
@@ -189,8 +190,8 @@ struct SubmitButton : View {
 						.stroke(Color("darkCyan"), lineWidth: 1.5)
 						.shadow(color: .white, radius: 6)
 				)
-		})
-		.padding(.top)
+				.padding(.top)
+		}
 	}
 }
 
