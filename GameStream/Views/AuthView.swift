@@ -6,11 +6,7 @@
 //
 
 import SwiftUI
-
-enum SESSION {
-	case LOGIN
-	case SIGNUP
-}
+import AVKit
 
 struct AuthView: View {
 	@State var path = NavigationPath()
@@ -33,7 +29,10 @@ struct AuthView: View {
 			.navigationDestination(for: Route.self) { route in
 				switch route {
 					case .home:
-						HomeView()
+						HomeView(path: $path)
+					case let .video(playerURL):
+						VideoPlayer(player: AVPlayer(url: URL(string: playerURL)!))
+							.frame(width: 400, height: 300)
 				}
 			}
 		}
