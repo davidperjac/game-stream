@@ -9,10 +9,11 @@ import SwiftUI
 import AVKit
 
 struct AuthView: View {
-	@State var path = NavigationPath()
+	
+	@StateObject var navigationStateManager = NavigationStateManager()
 	
     var body: some View {
-		NavigationStack(path: $path) {
+		NavigationStack(path: $navigationStateManager.selectionPath) {
 			ZStack {
 				Spacer()
 				Color("marin")
@@ -29,13 +30,14 @@ struct AuthView: View {
 			.navigationDestination(for: Route.self) { route in
 				switch route {
 					case .home:
-						HomeView(path: $path)
+						HomeView()
 					case let .video(playerURL):
 						VideoPlayer(player: AVPlayer(url: URL(string: playerURL)!))
 							.frame(width: 400, height: 300)
 				}
 			}
 		}
+		.environmentObject(navigationStateManager)
     }
 }
 
@@ -63,7 +65,9 @@ struct LoginView : View {
 				EmailField()
 				PasswordField()
 				ForgotPassword()
-				SubmitButton(title: "LOGIN", action: {print("LOGGING IN!")})
+				NavigationLink(value: Route.home) {
+					SubmitButton(title: "LOGIN", action: {print("LOGGING IN!")})
+				}
 				SocialNetworks()
 			}.padding(.horizontal, 36)
 		}
@@ -178,19 +182,17 @@ struct SubmitButton : View {
 	var action : () -> Void
 	
 	var body: some View {
-		NavigationLink(value: Route.home) {
-			Text(title)
-				.fontWeight(.bold)
-				.foregroundColor(.white)
-				.frame(maxWidth: .infinity, alignment: .center)
-				.padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
-				.overlay(
-					RoundedRectangle(cornerRadius: 6.0)
-						.stroke(Color("darkCyan"), lineWidth: 1.5)
-						.shadow(color: .white, radius: 6)
-				)
-				.padding(.top)
-		}
+		Text(title)
+			.fontWeight(.bold)
+			.foregroundColor(.white)
+			.frame(maxWidth: .infinity, alignment: .center)
+			.padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
+			.overlay(
+				RoundedRectangle(cornerRadius: 6.0)
+					.stroke(Color("darkCyan"), lineWidth: 1.5)
+					.shadow(color: .white, radius: 6)
+			)
+			.padding(.top)
 	}
 }
 

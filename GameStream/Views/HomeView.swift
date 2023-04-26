@@ -15,11 +15,6 @@ let urlVideos:[String] = ["https://cdn.cloudflare.steamstatic.com/steam/apps/256
 struct HomeView: View {
 
 	@State var selectedTab: Int = 2
-	@Binding var path: NavigationPath
-	
-	init (path: Binding<NavigationPath>) {
-		_path = path
-	}
 	
 	var body: some View {
 		TabView(selection: $selectedTab){
@@ -32,8 +27,7 @@ struct HomeView: View {
 				.toolbarBackground(Color.white, for: .tabBar)
 				.tag(0)
 			
-			Text("GAME VIEW!!")
-				.font(.system(size: 30, weight: .bold))
+			GamesView()
 				.tabItem {
 					Image(systemName: "gamecontroller")
 					Text("Games")
@@ -41,7 +35,7 @@ struct HomeView: View {
 				.toolbarBackground(Color.white, for: .tabBar)
 				.tag(1)
 			
-			HomeTab(path: $path)
+			HomeTab()
 				.toolbarBackground(Color("blueGray"),for: .tabBar)
 			
 			Text("FAV VIEW!!")
@@ -59,8 +53,6 @@ struct HomeView: View {
 }
 
 struct HomeTab : View {
-
-	@Binding var path : NavigationPath
 	
 	var body: some View {
 		ZStack {
@@ -76,7 +68,7 @@ struct HomeTab : View {
 				SearchBar()
 				
 				ScrollView (.vertical, showsIndicators: false) {
-					PlayerHome(path: $path)
+					PlayerHome()
 				}
 			}
 			.padding(.top, 65)
@@ -95,14 +87,12 @@ struct HomeTab : View {
 
 struct PlayerHome : View {
 	
-	@Binding var path: NavigationPath
-	
 	var body : some View {
 		VStack {
-			PopularSection(path: $path)
-			SuggestedSection(path: $path)
-			RecommendedYouSection(path: $path)
-			MayLikeSection(path: $path)
+			PopularSection()
+			SuggestedSection()
+			RecommendedYouSection()
+			MayLikeSection()
 		}
 		.padding(.bottom, 200)
 	}
@@ -110,43 +100,42 @@ struct PlayerHome : View {
 
 struct PopularSection : View {
 	
-	@Binding var path: NavigationPath
+	@EnvironmentObject var navigationStateManager : NavigationStateManager
 	
 	var body: some View {
 		CategoryTitle(title: "MOST POPULAR")
 		
-		ZStack {
-			Button(
-				action: {
-					path.append(Route.video(urlVideos[0]))
-				}, label: {
-					VStack(spacing: 0) {
-						Image("thewitcher")
-							.resizable()
-							.scaledToFill()
-						Text("The Witcher 3")
-							.font(.body)
-							.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-							.background(Color("blueGray"))
-							.foregroundColor(.white)
+		NavigationLink(value: Route.video(urlVideos[0])) {
+			ZStack {
+				Button(
+					action: {
+						print("POPULAR")
+					}, label: {
+						VStack(spacing: 0) {
+							Image("thewitcher")
+								.resizable()
+								.scaledToFill()
+							Text("The Witcher 3")
+								.font(.body)
+								.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+								.background(Color("blueGray"))
+								.foregroundColor(.white)
+						}
 					}
-				}
-			)
-
-			Image(systemName: "play.circle.fill")
-				.resizable()
-				.foregroundColor(.white)
-				.frame(width: 42, height: 42)
+				)
+				Image(systemName: "play.circle.fill")
+					.resizable()
+					.foregroundColor(.white)
+					.frame(width: 42, height: 42)
+			}
+			.frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+			.padding(.vertical)
 		}
-		.frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
-		.padding(.vertical)
+		
 	}
 }
 
 struct SuggestedSection : View {
-	
-	@Binding var path: NavigationPath
-	
 	var body: some View {
 		
 		Text("SUGGESTED CATEGORIES")
@@ -200,7 +189,7 @@ struct SuggestedSection : View {
 
 struct RecommendedYouSection : View {
 	
-	@Binding var path: NavigationPath
+	@EnvironmentObject var navigationStateManager : NavigationStateManager
 	
 	var body : some View {
 		Text("RECOMMENDED FOR YOU")
@@ -215,31 +204,22 @@ struct RecommendedYouSection : View {
 			
 			HStack {
 				
-				Button(
-					action: {
-						path.append(Route.video(urlVideos[1]))
-					}, label: {
+				NavigationLink(value: Route.video(urlVideos[1])) {
+					Image("spiderman")
+						.resizable()
+						.scaledToFit()
+						.frame(width: 240, height: 135)
+				}
 						
-						Image("spiderman")
-							.resizable()
-							.scaledToFit()
-							.frame(width: 240, height: 135)
-						
-					}
-				)
 				
-				Button(
-					action: {
-						path.append(Route.video(urlVideos[2]))
-					}, label: {
+				
+				NavigationLink(value: Route.video(urlVideos[2])) {
+					Image("lastofus")
+						.resizable()
+						.scaledToFit()
+						.frame(width: 240, height: 135)
+				}
 						
-						Image("lastofus")
-							.resizable()
-							.scaledToFit()
-							.frame(width: 240, height: 135)
-						
-					}
-				)
 			}
 		}
 	}
@@ -247,7 +227,7 @@ struct RecommendedYouSection : View {
 
 struct MayLikeSection : View {
 	
-	@Binding var path: NavigationPath
+	@EnvironmentObject var navigationStateManager : NavigationStateManager
 	
 	var body : some View {
 		Text("YOU MAY LIKE")
@@ -261,31 +241,19 @@ struct MayLikeSection : View {
 			
 			HStack {
 				
-				Button(
-					action: {
-						path.append(Route.video(urlVideos[3]))
-					}, label: {
-						
-						Image("uncharted4")
-							.resizable()
-							.scaledToFit()
-							.frame(width: 240, height: 135)
-						
-					}
-				)
-				
-				Button(
-					action: {
-						path.append(Route.video(urlVideos[4]))
-					}, label: {
-						
-						Image("dest")
-							.resizable()
-							.scaledToFit()
-							.frame(width: 140, height: 135)
-						
-					}
-				)
+				NavigationLink(value: Route.video(urlVideos[3])) {
+					Image("uncharted4")
+						.resizable()
+						.scaledToFit()
+						.frame(width: 240, height: 135)
+				}
+			
+				NavigationLink(value: Route.video(urlVideos[4])) {
+					Image("dest")
+						.resizable()
+						.scaledToFit()
+						.frame(width: 140, height: 135)
+				}
 			}
 		}
 	}
