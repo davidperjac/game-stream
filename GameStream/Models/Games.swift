@@ -11,7 +11,7 @@ struct Games: Codable {
 	let games:[Game]
 }
 
-struct Game: Codable {
+struct Game: Codable, Hashable {
 	let title, studio, contentRaiting, publicationYear: String
 	let description: String
 	let platforms, tags: [String]
@@ -19,7 +19,6 @@ struct Game: Codable {
 	let galleryImages: [String]
 }
 
-
-struct VideosUrls: Codable {
+struct VideosUrls: Codable, Hashable {
 	let mobile, tablet: String
 }

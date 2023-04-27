@@ -32,11 +32,12 @@ struct HomeView: View {
 					Image(systemName: "gamecontroller")
 					Text("Games")
 				}
-				.toolbarBackground(Color.white, for: .tabBar)
+				.toolbarBackground(Color("blueGray"),for:.tabBar)
 				.tag(1)
 			
 			HomeTab()
-				.toolbarBackground(Color("blueGray"),for: .tabBar)
+				.toolbarBackground(Color("blueGray"),for:.tabBar)
+				.tag(2)
 			
 			Text("FAV VIEW!!")
 				.font(.system(size: 30, weight: .bold))
@@ -80,8 +81,6 @@ struct HomeTab : View {
 			Image(systemName: "house")
 			Text("Home")
 		}
-		.toolbarBackground(Color.white, for: .tabBar)
-		.tag(2)
 	}
 }
 
