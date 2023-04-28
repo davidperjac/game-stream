@@ -11,22 +11,6 @@ class GameViewModel : ObservableObject {
 	
 	@Published var gamesInfo = [Game]()
 	
-
-//	func fetchGames() async {
-//		do {
-//			let url = URL(string: "https://gamestreamapi.herokuapp.com/api/games")!
-//
-//			let (data, _) = try await URLSession.shared.data(from: url)
-//
-//			let decoded = try JSONDecoder().decode([Game].self, from: data)
-//
-//			self.gamesInfo.append(contentsOf: decoded)
-//		} catch {
-//			print("SOME ERROR OCURRED")
-//		}
-//	}
-
-	
 	init() {
 		let url = URL(string: "https://gamestreamapi.herokuapp.com/api/games")!
 		var request = URLRequest(url: url)

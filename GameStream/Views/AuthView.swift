@@ -31,6 +31,8 @@ struct AuthView: View {
 				switch route {
 					case .home:
 						HomeView()
+					case let .game(game):
+						GameView(game: game)
 					case let .video(playerURL):
 						VideoPlayer(player: AVPlayer(url: URL(string: playerURL)!))
 							.frame(width: 400, height: 300)
